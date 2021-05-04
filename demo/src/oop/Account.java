@@ -6,10 +6,16 @@ public class Account {
 	private String customer;
 	private double balance;
 	
-	// Methods
-	public void open(int no, String name) {
-		acno = no;
+	// Constructor 
+	public Account(int no, String name) {
+	    acno = no;
 		customer = name;
+	}
+	
+	public Account(int no, String name, double bal) {
+	    acno = no;
+		customer = name;
+		balance = bal;
 	}
 	
 	public void deposit(double amount) {
