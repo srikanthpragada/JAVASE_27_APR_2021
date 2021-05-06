@@ -1,28 +1,42 @@
 package oop;
 
 public class Account {
-	// Instance variables 
+	// Instance variables
 	private int acno;
 	private String customer;
 	private double balance;
+
+	// Class variables
+	private static double minbal = 5000;
 	
-	// Constructor 
-	public Account(int no, String name) {
-	    acno = no;
-		customer = name;
+    // Static method 
+	public static double getMinbal() {
+		return Account.minbal;
 	}
-	
-	public Account(int no, String name, double bal) {
-	    acno = no;
-		customer = name;
-		balance = bal;
+
+	// Constructor
+	public Account(int acno, String customer) {
+		this.acno = acno;
+		this.customer = customer;
 	}
-	
+
+	public Account(int acno, String customer, double balance) {
+		this(acno, customer);
+		this.balance = balance;
+	}
+
 	public void deposit(double amount) {
-		balance += amount;
+		this.balance += amount;
 	}
-	
+
+	public void withdraw(double amount) {
+		if (this.balance - Account.minbal >= amount)
+			this.balance -= amount;
+		else
+			System.out.println("Insufficient Funds");
+	}
+
 	public double getBalance() {
-		return balance;
+		return this.balance;
 	}
 }

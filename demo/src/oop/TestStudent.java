@@ -4,20 +4,18 @@ class Student {
 	private String name;
 	private int course, feepaid;
 
-	public Student(String n, int c) {
-		name = n;
-		course = c;
-		feepaid = 0;
+	public Student(String name, int course, int feepaid) {
+		this(name,course);  // call another constructor 
+		this.feepaid = feepaid;
 	}
 
-	public Student(String n, int c, int fee) {
-		name = n;
-		course = c;
-		feepaid = fee;
+	public Student(String name, int course) {
+		this.name = name;
+		this.course = course;
 	}
 
 	public void print() {
-		System.out.println(name);
+		System.out.println(this.name);
 		System.out.println(getCourseName());
 		System.out.println(feepaid);
 	}

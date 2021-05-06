@@ -3,8 +3,10 @@ package oop;
 public class TestAccount {
 
 	public static void main(String[] args) {
+		
+		System.out.println(Account.getMinbal());
+		
 		Account a1; // object reference
-
 		a1 = new Account(1, "Scott");
 		a1.deposit(10000);
 		a1.deposit(5000);
