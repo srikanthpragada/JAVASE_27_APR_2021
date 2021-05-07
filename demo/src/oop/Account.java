@@ -11,6 +11,7 @@ public class Account {
 	
     // Static method 
 	public static double getMinbal() {
+		// System.out.println(this.balance);
 		return Account.minbal;
 	}
 
