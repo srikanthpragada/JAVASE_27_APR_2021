@@ -1,6 +1,6 @@
 package oop;
 
-class Person {
+abstract class Person {
 	protected String name, email;
 
 	public Person(String name, String email) {
@@ -13,9 +13,11 @@ class Person {
 		System.out.println(this.email);
 	}
 
-	public String getEmail() {
+	final public String getEmail() {
 		return this.email;
 	}
+    
+	public abstract String getOccupation();
 }
 
 class Employee extends Person {
@@ -32,6 +34,11 @@ class Employee extends Person {
 		super.print();
 		System.out.println(this.job);
 	}
+
+	@Override
+	public String getOccupation() {
+		 return "Works as " + this.job;
+	}
 }
 
 class Player extends Person {
@@ -46,6 +53,11 @@ class Player extends Person {
 	public void print() {
 		super.print();
 		System.out.println(this.game);
+	}
+	
+	@Override
+	public String getOccupation() {
+		 return "Plays " + this.game;
 	}
 }
 
