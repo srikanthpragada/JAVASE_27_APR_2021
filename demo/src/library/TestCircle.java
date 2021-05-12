@@ -12,7 +12,21 @@ class Circle {
 
 	@Override
 	public String toString() {
-		return this.x + "," + this.y + "," + this.radius;
+		return String.format("X = %d, Y = %d, Radius = %d",this.x, this.y, this.radius);
+	}
+	
+	@Override 
+	public boolean equals(Object obj) {
+		// Pattern matching 
+		if (obj instanceof Circle other)
+		    return this.x == other.x && this.y == other.y && this.radius == other.radius;
+		else
+			return false;
+	}
+	
+	@Override 
+	public int hashCode() {
+		return 1;
 	}
 }
 
@@ -22,8 +36,14 @@ public class TestCircle {
 		var c2 = new Circle(10, 20, 10);
 		var c3 = new Circle(10, 10, 20);
 
-		System.out.println(c1 == c2);
+		System.out.println(c1 == c2);        // Object references 
 		System.out.println(c1.equals(c2));
+		
+		System.out.println(c1.hashCode());
+		System.out.println(c2.hashCode());
+		
+		System.out.println(c1.equals("Abc"));
 		System.out.println(c1.toString());
+		
 	}
 }
