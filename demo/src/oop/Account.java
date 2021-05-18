@@ -1,5 +1,11 @@
 package oop;
 
+class InsufficientBalanceException extends Exception {
+	public InsufficientBalanceException(String message) {
+		super(message);
+	}
+}
+
 public class Account {
 	// Instance variables
 	private int acno;
@@ -8,8 +14,8 @@ public class Account {
 
 	// Class variables
 	private static double minbal = 5000;
-	
-    // Static method 
+
+	// Static method
 	public static double getMinbal() {
 		// System.out.println(this.balance);
 		return Account.minbal;
@@ -30,11 +36,11 @@ public class Account {
 		this.balance += amount;
 	}
 
-	public void withdraw(double amount) {
+	public void withdraw(double amount) throws InsufficientBalanceException {
 		if (this.balance - Account.minbal >= amount)
 			this.balance -= amount;
 		else
-			System.out.println("Insufficient Funds");
+			throw new InsufficientBalanceException("Insufficient Balance");
 	}
 
 	public double getBalance() {

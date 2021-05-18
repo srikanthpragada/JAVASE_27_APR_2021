@@ -9,8 +9,5 @@ public class UseBank {
 		bank.Customer c;   // Fully qualified classname 
 		Scanner s;
 		// Transaction t;
-		 
-
 	}
-
 }
