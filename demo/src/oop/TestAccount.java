@@ -2,7 +2,7 @@ package oop;
 
 public class TestAccount {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 		
 		System.out.println(Account.getMinbal());
 		
@@ -10,7 +10,7 @@ public class TestAccount {
 		a1 = new Account(1, "Scott");
 		a1.deposit(10000);
 		a1.deposit(5000);
-		// a1.withdraw(50000);
+		a1.withdraw(50000);
 		
 		System.out.println(a1.getBalance());
 
