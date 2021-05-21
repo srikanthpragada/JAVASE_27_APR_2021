@@ -2,6 +2,9 @@ package threads;
 
 class Data {
 	synchronized public void print() {
+		System.out.printf("%s Entered!\n", 
+				 Thread.currentThread().getName());
+		
 		for (int i = 1; i <= 5; i++) {
 			System.out.println(i);
 			try {
@@ -30,7 +33,9 @@ public class TestSync {
 		Data obj = new Data();
 		// make two threads access the same object
 		thread1 = new CThread(obj);
+		thread1.setName("First");
 		thread2 = new CThread(obj);
+		thread2.setName("Second");
 		thread1.start();
 		thread2.start();
 	}
