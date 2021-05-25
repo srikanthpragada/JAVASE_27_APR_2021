@@ -13,7 +13,7 @@ public class TimeClient {
 		// Use Scanner to read a line
 		Scanner scanner = new Scanner(is);
 		String line = scanner.nextLine();
-		System.out.println(line);
+		System.out.printf("Received from server : %s\n",line);
 		cs.close();
 	}
 
