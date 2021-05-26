@@ -10,13 +10,16 @@ public class Download {
 	 	URL urlobj = new URL("http://www.srikanthtechnologies.com/banner.jpg");
 		InputStream is = urlobj.openStream();
 		FileOutputStream fo = new FileOutputStream("c:\\classroom\\st.jpg");
-		int ch = is.read();
+	
 		int count = 0;
-		while (ch != -1) {
+		while (true) {
+			int ch = is.read();
+			if(ch == -1)
+				break;
 			fo.write(ch);
-			ch = is.read();
-			count ++;
+		    count ++;
 		}
+		
 		fo.close();
 		is.close();
 		System.out.printf("Downloaded %d bytes!", count);

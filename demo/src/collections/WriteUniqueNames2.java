@@ -8,7 +8,7 @@ public class WriteUniqueNames2 {
 
 	public static void main(String[] args) throws Exception {
 		var names = new TreeSet<String>();
-		var file = new FileWriter("sortednames.txt");
+		var file = new FileWriter("c:\\classroom\\apr27\\sortednames.txt");
 		var scanner = new Scanner(System.in);
 		
 		while (true) {

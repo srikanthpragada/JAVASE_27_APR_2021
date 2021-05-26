@@ -1,13 +1,6 @@
+C
+C#
 Java
 JavaScript
-C#
-C++
 Python
-Go
 TypeScript
-C
-Rust
-Ruby
-Java
-C
-

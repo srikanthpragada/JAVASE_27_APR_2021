@@ -22,10 +22,10 @@ public class MarksServer {
 		while (true) {
 			Socket cs = ss.accept(); // wait for client
 			var scanner = new Scanner(cs.getInputStream());
-			var rollno = scanner.nextInt();
+			var rollno = scanner.nextInt();  // read from client
 			PrintWriter pw = new PrintWriter(cs.getOutputStream(), true);
 			var marks = getMarks(rollno, file);
-			pw.println(marks);
+			pw.println(marks);   // send to client 
 		} // end of while
 	} // end of main
 

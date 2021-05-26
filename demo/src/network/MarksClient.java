@@ -15,13 +15,13 @@ public class MarksClient {
 		int rollno = keyboard.nextInt();
 
 		var output = new PrintWriter(cs.getOutputStream(), true);
-		output.println(rollno);
+		output.println(rollno);  // send to server
 
 		// get stream to read data from server
 		InputStream is = cs.getInputStream();
 		// Use Scanner to read a line
 		Scanner scanner = new Scanner(is);
-		String marks = scanner.nextLine();
+		String marks = scanner.nextLine();  // Read from server 
 		System.out.printf("Marks : %s\n", marks);
 		cs.close();
 		keyboard.close();
