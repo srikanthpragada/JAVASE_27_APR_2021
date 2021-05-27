@@ -5,16 +5,18 @@ import java.util.ArrayList;
 public class ArrayListGenericDemo {
 
 	public static void main(String[] args) {
-		ArrayList<String> al = new ArrayList<>();
-		ArrayList<Integer> nums = new ArrayList<>();
+		var al = new ArrayList(); // RAW means not type-safe 
+		var names = new ArrayList<String>(); // Type-safe 
 
+		al.add(10); // Autoboxing
 		al.add("Abc");
-		al.add("Xyz");
-		
-		nums.add(10);
 
-		String s = al.get(0);
-		int v = nums.get(0);  // Integer object to int  (Unboxing)
+		String s = (String) al.get(0);
+
+		names.add("Abc");
+		
+		s = names.get(0);
+		 
 
 	}
 }
