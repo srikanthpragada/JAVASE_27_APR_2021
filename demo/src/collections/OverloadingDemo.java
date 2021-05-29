@@ -3,12 +3,12 @@ package collections;
 public class OverloadingDemo {
 
 	public static void print(int a[]) {
-		for (int n : a)
+		for (var n : a)
 			System.out.println(n);
 	}
 
 	public static void print(String a[]) {
-		for (String n : a)
+		for (var n : a)
 			System.out.println(n);
 	}
 

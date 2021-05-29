@@ -1,10 +1,10 @@
 package collections;
 
 public class GenericMethodDemo {
-
+	// Generic Method
 	public static <T> void print(T a[]) {
 		for (T n : a)
-			System.out.println(n);
+			System.out.print(n + " ");
 	}
 
 	public static <T extends Comparable<T>> boolean search(T a[], T value) {
@@ -13,20 +13,16 @@ public class GenericMethodDemo {
 				return true;
 
 		return false;
-
 	}
 
 	static class Point implements Comparable<Point> {
 		private int x, y;
-
 		public Point(int x, int y) {
 			this.x = x;
 			this.y = y;
 		}
-
 		@Override
 		public int compareTo(Point o) {
-
 			return 0;
 		}
 	}
@@ -41,7 +37,7 @@ public class GenericMethodDemo {
 		print(prices);
 
 		System.out.println(search(names, "Java"));
-
+ 
 		Point points[] = { new Point(10, 20), new Point(30, 33) };
 		System.out.println(search(points, new Point(1, 2)));
 
