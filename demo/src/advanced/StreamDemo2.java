@@ -8,10 +8,15 @@ public class StreamDemo2 {
 
 	public static void main(String[] args) throws Exception {
 		 
-		Files.lines(Path.of("c:\\classroom\\names.txt"))
-		     .filter(n ->  Pattern.matches("[a-zA-Z ]+",n))
+		var path = Path.of("c:\\classroom\\names.txt");
+		var stream = Files.lines(path);
+		
+		stream.filter(n ->  Pattern.matches("[a-zA-Z ]+",n))
+		     .distinct()
 		     .sorted()
+		     .limit(4)
 		     .forEach(System.out::println);
+    
 	}
 
 }
