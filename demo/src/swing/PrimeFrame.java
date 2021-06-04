@@ -16,6 +16,7 @@ public class PrimeFrame extends JFrame {
 	JTextField tfNumber;
 	JButton btnPrime;
 	JButton btnExit;
+	JLabel lblMsg;
 
 	public PrimeFrame() {
 		super("Prime Number");
@@ -51,9 +52,16 @@ public class PrimeFrame extends JFrame {
 		bp.add(btnPrime);
 		bp.add(btnExit);
 
+		lblMsg = new JLabel();
+		lblMsg.setHorizontalAlignment(JLabel.CENTER);
+		lblMsg.setForeground(Color.RED);
+		
 		Container c = getContentPane();
 		c.add(tp, BorderLayout.NORTH);
-		c.add(bp, BorderLayout.SOUTH);
+		c.add(bp, BorderLayout.CENTER);
+		c.add(lblMsg,BorderLayout.SOUTH);
+		
+		
 
 		setSize(300, 200);
 		setVisible(true);
