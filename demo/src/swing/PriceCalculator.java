@@ -21,7 +21,7 @@ public class PriceCalculator extends JFrame {
 		rbCash = new JRadioButton("Cash", true);
 		rbCredit = new JRadioButton("Credit");
 
-		ButtonGroup bg = new ButtonGroup();
+		ButtonGroup bg = new ButtonGroup(); // Mutually exclusive
 		bg.add(rbCash);
 		bg.add(rbCredit);
 

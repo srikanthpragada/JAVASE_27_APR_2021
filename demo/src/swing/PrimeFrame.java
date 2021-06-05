@@ -35,9 +35,9 @@ public class PrimeFrame extends JFrame {
 				}
 			}
 			if (prime)
-				JOptionPane.showMessageDialog(this, "Prime number!");
+				lblMsg.setText("Prime number!");
 			else
-				JOptionPane.showMessageDialog(this, "Not a Prime number!");
+				lblMsg.setText("Not a Prime number!");
 		});
 
 		btnExit = new JButton("Exit");
