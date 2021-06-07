@@ -17,7 +17,7 @@ public class ListDemo extends JFrame {
 
 	DefaultListModel<String> data;
 	JList<String> lst;
-	JButton btnAdd, btnRemove, btnList, btnClear;
+	JButton btnAdd, btnRemove, btnList, btnUnselect;
 
 	public ListDemo() {
 		super("List Demo");
@@ -32,7 +32,7 @@ public class ListDemo extends JFrame {
 		btnAdd = new JButton("Add");
 		btnRemove = new JButton("Remove");
 		btnList = new JButton("List");
-		btnClear = new JButton("Unselect");
+		btnUnselect = new JButton("Unselect");
 
 		Container c = getContentPane();
 		JScrollPane jsp = new JScrollPane(lst,
@@ -44,54 +44,37 @@ public class ListDemo extends JFrame {
 		p.add(btnAdd);
 		p.add(btnRemove);
 		p.add(btnList);
-		p.add(btnClear);
+		p.add(btnUnselect);
 		c.add(p, BorderLayout.PAGE_END);
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setSize(400, 200);
 		
-		// btnClear.addActionListener( e -> lst.clearSelection());
-		
-
-		ActionListener action = evt -> {
-			// did user click on unselect button 
-			if (evt.getSource() == btnClear) {
-				lst.clearSelection();
-			} else if (evt.getSource() == btnAdd) {
-				String name = JOptionPane.showInputDialog(this,
-						"Enter a name:", "Add", 
-						JOptionPane.PLAIN_MESSAGE);
-				if (name != null) {
-					data.addElement(name);
-				}
-			} else if (evt.getSource() == btnList) {
-				List<String> items = lst.getSelectedValuesList();
-				if (items.size() == 0 )
-					return;
-				String st = String.join("\n", items);
-				JOptionPane.showMessageDialog(this, st, 
-						"Selected Items", JOptionPane.INFORMATION_MESSAGE);
-			} else if (evt.getSource() == btnRemove) {
-				List<String> items = lst.getSelectedValuesList();
-				if (items.size() == 0 )
-					return;
-				int res = JOptionPane.showConfirmDialog(this, 
-						"Do you want to delete selected items?",
-						"Confirm",
-						JOptionPane.YES_NO_OPTION,
-						JOptionPane.QUESTION_MESSAGE);
-
-				if (res == JOptionPane.YES_OPTION) {
-					lst.getSelectedValuesList()
-					   .forEach(name -> data.removeElement(name));
-				}
+		btnAdd.addActionListener(e -> {
+			String name = JOptionPane.showInputDialog(this, "Enter a name:", "Add",
+					                                  JOptionPane.PLAIN_MESSAGE);
+			if (name != null)
+				data.addElement(name);
+		});
+        // Remove 
+		btnRemove.addActionListener(e -> {
+			int res = JOptionPane.showConfirmDialog(this, 
+					"Do you want to delete selected items?", "Confirm",
+					JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+			if (res == JOptionPane.YES_OPTION) {
+				lst.getSelectedValuesList().forEach(name -> data.removeElement(name));
 			}
-		};
-		
-		btnAdd.addActionListener(action);
-		btnRemove.addActionListener(action);
-		btnList.addActionListener(action);
-		btnClear.addActionListener(action);
+		});
+        // List
+		btnList.addActionListener(e -> {
+			var names = lst.getSelectedValuesList();
+			String output = String.join("\n", names);
+			JOptionPane.showMessageDialog(this, output, "Selected Names", 
+					JOptionPane.INFORMATION_MESSAGE);
+		});
+
+		btnUnselect.addActionListener(e -> lst.clearSelection());
+	 
 	}
 
 	public static void main(String args[]) {

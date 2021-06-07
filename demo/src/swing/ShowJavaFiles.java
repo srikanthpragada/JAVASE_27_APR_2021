@@ -30,7 +30,7 @@ public class ShowJavaFiles extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		tfDir = new JTextField(20);
-		tfDir.setText("c:\\classroom\\apr7");
+		tfDir.setText("c:\\classroom\\apr27");
 		btnList = new JButton("List");
 		btnExit = new JButton("Exit");
 
